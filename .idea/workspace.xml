@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e9488769-f3df-42ec-9fec-79626e23a46a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/css/img-offset.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/img-offset.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1naXnvolHoKf0ucdRsXBM4KFYb4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="C:/personal/profile" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../profile" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e9488769-f3df-42ec-9fec-79626e23a46a" name="Default Changelist" comment="" />
+      <created>1611629345984</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611629345984</updated>
+      <workItem from="1611629347043" duration="166000" />
+    </task>
+    <task id="LOCAL-00001" summary="사이트 업데이트">
+      <created>1611629398579</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611629398579</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="사이트 업데이트" />
+    <option name="LAST_COMMIT_MESSAGE" value="사이트 업데이트" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="577" y="129" key="CommitChangelistDialog2" timestamp="1611629397419">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="577" y="129" key="CommitChangelistDialog2/0.40.1920.1040/1920.40.1920.1040@0.40.1920.1040" timestamp="1611629397419" />
+    <state x="552" y="293" key="Vcs.Push.Dialog.v2" timestamp="1611629401173">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="552" y="293" key="Vcs.Push.Dialog.v2/0.40.1920.1040/1920.40.1920.1040@0.40.1920.1040" timestamp="1611629401173" />
   </component>
 </project>
