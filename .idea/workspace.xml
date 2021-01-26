@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9488769-f3df-42ec-9fec-79626e23a46a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/images/common/drag_drop_text.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/img-offset.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/img-offset.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/img-offset.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/img-offset.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611629345984</updated>
-      <workItem from="1611629347043" duration="5638000" />
+      <workItem from="1611629347043" duration="7501000" />
     </task>
     <task id="LOCAL-00001" summary="사이트 업데이트">
       <created>1611629398579</created>
@@ -56,7 +55,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611629548469</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="디자인 변경">
+      <created>1611638091998</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611638091998</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -65,18 +71,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="사이트 업데이트" />
     <MESSAGE value="input box resize" />
-    <option name="LAST_COMMIT_MESSAGE" value="input box resize" />
+    <MESSAGE value="디자인 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="디자인 변경" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2497" y="129" key="CommitChangelistDialog2" timestamp="1611629547228">
+    <state x="2497" y="129" key="CommitChangelistDialog2" timestamp="1611638090638">
       <screen x="1920" y="40" width="1920" height="1040" />
     </state>
     <state x="577" y="129" key="CommitChangelistDialog2/0.40.1920.1040/1920.40.1920.1040@0.40.1920.1040" timestamp="1611629397419" />
-    <state x="2497" y="129" key="CommitChangelistDialog2/0.40.1920.1040/1920.40.1920.1040@1920.40.1920.1040" timestamp="1611629547228" />
-    <state x="2472" y="293" key="Vcs.Push.Dialog.v2" timestamp="1611629553520">
+    <state x="2497" y="129" key="CommitChangelistDialog2/0.40.1920.1040/1920.40.1920.1040@1920.40.1920.1040" timestamp="1611638090638" />
+    <state x="2472" y="293" key="Vcs.Push.Dialog.v2" timestamp="1611638094003">
       <screen x="1920" y="40" width="1920" height="1040" />
     </state>
     <state x="552" y="293" key="Vcs.Push.Dialog.v2/0.40.1920.1040/1920.40.1920.1040@0.40.1920.1040" timestamp="1611629401173" />
-    <state x="2472" y="293" key="Vcs.Push.Dialog.v2/0.40.1920.1040/1920.40.1920.1040@1920.40.1920.1040" timestamp="1611629553520" />
+    <state x="2472" y="293" key="Vcs.Push.Dialog.v2/0.40.1920.1040/1920.40.1920.1040@1920.40.1920.1040" timestamp="1611638094003" />
   </component>
 </project>
