@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9488769-f3df-42ec-9fec-79626e23a46a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/img-offset.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/img-offset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/img-offset.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/img-offset.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +25,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../profile" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -30,7 +40,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611629345984</updated>
-      <workItem from="1611629347043" duration="166000" />
+      <workItem from="1611629347043" duration="5638000" />
     </task>
     <task id="LOCAL-00001" summary="사이트 업데이트">
       <created>1611629398579</created>
@@ -39,7 +49,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611629398579</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="input box resize">
+      <created>1611629548469</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611629548469</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -47,16 +64,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="사이트 업데이트" />
-    <option name="LAST_COMMIT_MESSAGE" value="사이트 업데이트" />
+    <MESSAGE value="input box resize" />
+    <option name="LAST_COMMIT_MESSAGE" value="input box resize" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="577" y="129" key="CommitChangelistDialog2" timestamp="1611629397419">
-      <screen x="0" y="40" width="1920" height="1040" />
+    <state x="2497" y="129" key="CommitChangelistDialog2" timestamp="1611629547228">
+      <screen x="1920" y="40" width="1920" height="1040" />
     </state>
     <state x="577" y="129" key="CommitChangelistDialog2/0.40.1920.1040/1920.40.1920.1040@0.40.1920.1040" timestamp="1611629397419" />
-    <state x="552" y="293" key="Vcs.Push.Dialog.v2" timestamp="1611629401173">
-      <screen x="0" y="40" width="1920" height="1040" />
+    <state x="2497" y="129" key="CommitChangelistDialog2/0.40.1920.1040/1920.40.1920.1040@1920.40.1920.1040" timestamp="1611629547228" />
+    <state x="2472" y="293" key="Vcs.Push.Dialog.v2" timestamp="1611629553520">
+      <screen x="1920" y="40" width="1920" height="1040" />
     </state>
     <state x="552" y="293" key="Vcs.Push.Dialog.v2/0.40.1920.1040/1920.40.1920.1040@0.40.1920.1040" timestamp="1611629401173" />
+    <state x="2472" y="293" key="Vcs.Push.Dialog.v2/0.40.1920.1040/1920.40.1920.1040@1920.40.1920.1040" timestamp="1611629553520" />
   </component>
 </project>

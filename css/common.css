@@ -119,3 +119,10 @@ h5.title {font-size:14px;}
 /* animation */
 .ani-slide-up {animation: ani-slide-up .6s forwards;transition:opacity .4s ease-in-out, transform .4s ease-in-out;}
 
+/* button */
+.btn {position:relative;display:inline-block;vertical-align: top;min-width:100px;height:40px;font-size:14px;font-weight:600;text-align:center;border:0;cursor:pointer}
+.btn:active {left:-1px;top:-1px;}
+.btn.primary {background:#0f92f7;color:#fff;}
+
+/* flex-row */
+.flex-row {display:flex;flex:1;align-items: center}

@@ -251,6 +251,10 @@ function fixedTopTarget (e) {
         fixeding = false;
     }
 }
+function toggleClass (el, className) {
+    var $el = $(el)
+    $el.toggleClass(className);
+}
 
 var resizing = false;
 var dragging = false;
