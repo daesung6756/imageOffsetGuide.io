@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name=“Author” content="dae-sung lee">
+    <meta name=“Description” content="로컬 이미지 위치값 구하기">
+    <title>이미지 위치 구하기</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/img-offset.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/img-offset.js"></script>
+</head>
+<body>
+<!-- overlay nav -->
+<div class="overlay-nav" id="overlay-nav">
+    <h2>Gnb</h2>
+</div>
+<!-- //overlay nav -->
+<!-- btn -->
+<div class="makeBox">
+    <div class="box-control">
+        <div class="color-ctrl">
+            <p class="desc-title">박스 색상</p>
+            <div class="radio-set">
+               <label for="colorSelect1"><input type="radio" id="colorSelect1" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">블랙</label>
+               <label for="colorSelect2"><input type="radio" id="colorSelect2" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">블루</label>
+               <label for="colorSelect3"><input type="radio" id="colorSelect3" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">레드</label>
+               <label for="colorSelect4"><input type="radio" id="colorSelect4" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')" checked>옐로우</label>
+            </div>
+        </div>
+        <div class="alpha-ctrl">
+            <p class="desc-title">박스 투명도</p>
+            <div class="ctrl-inner">
+                <input type="range" value="3" min="0" max="10" class="alpha-range" onchange="getAlphaTarget('.rect-box', '.alpha-range')">
+                <span class="resualt-value">opacity :0.3</span>
+            </div>
+        </div>
+    </div>
+    <div class="makeBox-inner">
+        <div class="input-area">
+            <input type="text" class="input-text-set makeBox-width" placeholder="width" maxlength="5">
+            <input type="text" class="input-text-set makeBox-height" placeholder="height" maxlength="5">
+        </div>
+        <div class="control-btn"><button type="button" class="change-btn">변경</button></div>
+    </div>
+    <div class="reset-wrap">
+        <button type="button" class="img-view-reset" onclick="handleFileSelectReset()">이미지 초기화</button>
+    </div>
+    <div class="boardcopy-wrap">
+        <div>
+            <button type="button" onclick="boardCopyEvent('#resualt-px')">PX CSS 복사</button>
+            <button type="button" onclick="boardCopyEvent('#resualt-per')">% CSS 복사</button>
+        </div>
+        <div style="margin-top:10px;">
+            <button type="button" class="direct" onclick="appendBtn('#resualt-px')">PX 버튼 복사</button>
+            <button type="button" class="direct" onclick="appendBtn('#resualt-per')">% 버튼 복사</button>
+        </div>
+    </div>
+    <div class="resualt-px">
+        <textarea id="resualt-px" readonly="readonly"></textarea>
+    </div>
+    <div class="resualt-per">
+        <textarea id="resualt-per" readonly="readonly"></textarea>
+    </div>
+</div>
+
+<div class="m-event-area">
+    <div class="event-inner">
+        <button type="button" class="fixed-btn" onclick="fixedTopTarget(event)">고정</button>
+        <div class="rect-box"></div>
+        <span class="resize-btn"></span>
+    </div>
+</div>
+
+<!--<div class="make-rect-box"></div>-->
+<!--<div class="resize-btn-wrap"><span class="resize-btn"></span></div>-->
+<div class="wrap">
+    <header class="header">
+        <h1 class="title tc">Leeds Get Images Offset Generator v0.51</h1>
+        <p class="title-desc tc">Made in Korea!</p>
+        <div class="row mt40">
+            <div class="column n2">
+                <ol class="ol-list">
+                    <li>01. 원하는 이미지를 <em>Input Dotted 영역에 드래그 후 드롭</em> 해준다.</li>
+                    <li>02. <em>노란영역(이동)</em> 클릭후 드래그 해서 원하는 위치에 놓는다.</li>
+                    <li>03. <em>방향키로</em> 섬세하게 위치를 잡아준다. <em>(←,↑,↓,→)</em></li>
+                    <li>04. <strong>주황영역(크기조절)</strong> 클릭 후 원하는 크기로 조정 한다.</li>
+                    <li>05. 우측 상단의 컨트롤 박스에서 원하는 단위 버튼을 클릭.</li>
+                </ol>
+                <ul class="ul-list mt10">
+                    <li>※ 스크롤 이동이 있을 시 한번 클릭하셔야 위치값이 전송됩니다.</li>
+                    <li>※ 미완성 버전임브로 결함이나 에러가 있을 수 있습니다.</li>
+                    <li>※ 드래그/리사이즈 시 연속적으로 수치를 가져 옵니다.</li>
+                    <li>※ 사용하시다가 불편한 점이 있으시면, 참고 하십시요.</li>
+                </ul>
+            </div>
+            <div class="column n2">
+                <div class="release-info">
+                    <ul>
+                        <li>
+                            <strong>v0.51</strong>
+                            <ul>
+                                <li>radio set css 수정</li>
+                                <li>컨트롤 박스 드레그 이벤트 조정.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>v0.5</strong>
+                            <ul>
+                                <li>앵커태그 복사 기능 추가</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>v0.4</strong>
+                            <ul>
+                                <li>Top 값 고정 버튼 기능 추가<br>(고정 버튼 클릭시 클릭 시점의 높이값으로 고정)</li>
+                                <li>초반 박스 사이즈 나오지 않던 부분 수정.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>v0.3</strong>
+                            <ul>
+                                <li>.makeBox 드래그 이동 기능 추가.</li>
+                                <li>.makeBox 박스 색상 변화 기능 추가</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>v0.2</strong>
+                            <ul>
+                                <li>.rect-box 방향키로 미세 조정 기능 추가</li>
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>v0.1</strong>
+                            <ul>
+                                <li>컨트롤 박스 추가</li>
+                                <li>로컬 이미지 브라우저에 보이는 기능 추가</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <div class="local-img-view">
+                <fieldset class="file-up">
+                    <input type="file" id="files" name="files[]" multiple  class="fake" />
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+    </div>
+</div>
+<div id="list" class="local-img-output"></div>
+</body>
+</html>
