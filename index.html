@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/img-offset.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/vendor/jquery-ui.css">
+    <script src="js/vendor/jquery-1.12.4.js"></script>
+    <script src="js/vendor/jquery-ui.js"></script>
     <script src="js/img-offset.js"></script>
 </head>
 <body>
 
-<div class="m-event-area">
+<div class="move-event-area">
     <div class="event-inner">
         <button type="button" class="fixed-btn" onclick="fixedTopTarget(event)">고정</button>
         <div class="rect-box"></div>
@@ -25,9 +25,10 @@
 
 <!-- options : Start -->
 <div class="options">
-    <button type="button" class="btn" onclick="toggleClass('.makeBox', 'is-show');">Option</button>
+    <button type="button" class="btn options-open" onclick="clickToggleClassEvent('.options','is-show')">Option</button>
     <!-- btn -->
-    <div class="makeBox">
+    <div class="make-box">
+        <div class="box-head"><button type="button" class="btn options-close" onclick="clickToggleClassEvent('.options','is-show')">Close</button></div>
         <div class="box-control">
             <div class="color-ctrl">
                 <p class="desc-title">박스 색상</p>
@@ -42,11 +43,11 @@
                 <p class="desc-title">박스 투명도</p>
                 <div class="ctrl-inner">
                     <input type="range" value="3" min="0" max="10" class="alpha-range" onchange="getAlphaTarget('.rect-box', '.alpha-range')">
-                    <span class="resualt-value">opacity :0.3</span>
+                    <span class="result-value">opacity :0.3</span>
                 </div>
             </div>
         </div>
-        <div class="makeBox-inner">
+        <div class="make-box-inner">
             <div class="input-area">
                 <input type="text" class="input-text-set makeBox-width" placeholder="width" maxlength="5">
                 <input type="text" class="input-text-set makeBox-height" placeholder="height" maxlength="5">
@@ -56,21 +57,21 @@
         <div class="reset-wrap">
             <button type="button" class="img-view-reset" onclick="handleFileSelectReset()">이미지 초기화</button>
         </div>
-        <div class="boardcopy-wrap">
+        <div class="board-copy-wrap">
             <div>
-                <button type="button" onclick="boardCopyEvent('#resualt-px')">PX CSS 복사</button>
-                <button type="button" onclick="boardCopyEvent('#resualt-per')">% CSS 복사</button>
+                <button type="button" onclick="boardCopyEvent('#result-px')">PX CSS 복사</button>
+                <button type="button" onclick="boardCopyEvent('#result-per')">% CSS 복사</button>
             </div>
             <div style="margin-top:10px;">
-                <button type="button" class="direct" onclick="appendBtn('#resualt-px')">PX 버튼 복사</button>
-                <button type="button" class="direct" onclick="appendBtn('#resualt-per')">% 버튼 복사</button>
+                <button type="button" class="direct" onclick="appendBtn('#result-px')">PX 버튼 복사</button>
+                <button type="button" class="direct" onclick="appendBtn('#result-per')">% 버튼 복사</button>
             </div>
         </div>
-        <div class="resualt-px">
-            <textarea id="resualt-px" readonly="readonly"></textarea>
+        <div class="result-px">
+            <textarea id="result-px" readonly="readonly"></textarea>
         </div>
-        <div class="resualt-per">
-            <textarea id="resualt-per" readonly="readonly"></textarea>
+        <div class="result-per">
+            <textarea id="result-per" readonly="readonly"></textarea>
         </div>
     </div>
 </div>
@@ -79,13 +80,13 @@
 <div class="wrap">
     <div class="header">
         <div class="inner">
-            <h1 class="title tc">Leeds Get Images Offset Generator v0.56</h1>
+            <h1 class="title tc">Leeds Get Images Offset Generator v0.6</h1>
         </div>
     </div>
 
     <div class="container">
         <div class="content">
-            <!-- 제작 정보 : Start
+            <!-- 제작 정보 : Start -->
             <div class="row mt40" style="max-width:1024px;">
                 <div class="column n2">
                     <ol class="ol-list">
@@ -105,6 +106,13 @@
                 <div class="column n2">
                     <div class="release-info">
                         <ul>
+                            <li>
+                                <strong>v0.6</strong>
+                                <ul>
+                                    <li>제이쿼리 일부 자바스크립트로 변환</li>
+                                    <li>일부 오류 수정</li>
+                                </ul>
+                            </li>
                             <li>
                                 <strong>v0.56</strong>
                                 <ul>
@@ -156,7 +164,7 @@
                     </div>
                 </div>
             </div>
-            제작 정보 : END -->
+            <!-- 제작 정보 : END -->
             <div class="local-img-view">
                 <fieldset class="file-up">
                     <input type="file" id="files" name="files[]" multiple  class="fake" />

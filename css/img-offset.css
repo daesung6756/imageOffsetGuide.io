@@ -1,4 +1,9 @@
 html, body{width:100%;height:100%;}
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
 * {box-sizing:border-box}
 .header {align-items: center;background:#9a9a9a;}
 .header .inner {max-width:1024px;width:100%;margin:0 auto;}
@@ -6,22 +11,26 @@ html, body{width:100%;height:100%;}
 .input-text-set {display:inline-block;height:40px;line-height:40px;padding:0 10px;width:70px;margin:5px;}
 
 .local-img-output {text-align:center;min-width:100%;}
-.local-img-output span {position:relative;display:inline-block;border:1px solid #303030;}
-.local-img-output span img {min-width:100%;display:block;}
+.local-img-output .img-wrap {position:relative;display:block;border:1px solid #303030;width:100%;max-width:1920px;margin:0 auto;}
+.local-img-output .img-wrap img {width:100%;max-width:100%;display:block;}
 
 
 .options {position:fixed;top:30px;right:0;z-index:100;}
-.options .btn {border-radius:20px 0 0 20px;color:#ff9e88;background:#ff5b36;-webkit-box-shadow: 9px 10px 20px 0px rgba(0,0,0,0.2);-moz-box-shadow: 9px 10px 20px 0px rgba(0,0,0,0.2);box-shadow: 9px 10px 20px 0px rgba(0,0,0,0.2);outline:none;}
+.options .options-open {border-radius:20px 0 0 20px;color:#ff9e88;background:#ff5b36;-webkit-box-shadow: 9px 10px 20px 0px rgba(0,0,0,0.2);-moz-box-shadow: 9px 10px 20px 0px rgba(0,0,0,0.2);box-shadow: 9px 10px 20px 0px rgba(0,0,0,0.2);outline:none;transform: translateX(0);transition: transform .3s linear}
+.options .options-close {border-radius:10px;background:#ff5b36 }
+.options.is-show .options-open {transform: translateX(100%);transition: transform .3s linear}
+.options.is-show .make-box {display:block;top:auto;right:0;transform: translateX(0);}
 
-.makeBox {display:none;position:absolute;top:100%;right:0;transform:translateY(10px);padding:20px;border:1px dotted #b6b6b6;background:#fff;box-shadow:10px 10px 10px rgba(0,0,0,.2);border-radius:10px;overflow:hidden;z-index:100;}
-.makeBox.is-show {display:block;}
-.makeBox:active {cursor:move}
-.makeBox-inner {position:relative;padding:10px 70px 10px 10px;border-bottom:1px dotted #ddd;}
-.makeBox-inner .control-btn {position:absolute;right:0;top:50%;transform: translateY(-50%);}
-.makeBox-inner .control-btn button{width:65px;height:40px;cursor:pointer;background:#446dcb;border:1px solid #446dcb;color:#fff;font-weight:bold;}
-.makeBox-inner .control-btn button:active{position:relative;top:1px;left:1px;}
-.makeBox-inner .input-area {font-size:0;}
-.makeBox-inner .input-area input {font-size:14px;}
+.make-box {display:none;position:absolute;top:100%;right:0;padding:20px;border:1px dotted #b6b6b6;background:#fff;box-shadow:10px 10px 10px rgba(0,0,0,.2);border-radius:10px;overflow:hidden;z-index:100;transform: translateX(100%);}
+.make-box:active {cursor:move;}
+.make-box .box-head {position:relative;min-height:40px;display:flex;align-items: center;justify-content: flex-end}
+.make-box .box-head .btn {min-width:auto;color:#fff;background:#000;}
+.make-box-inner {position:relative;padding:10px 70px 10px 10px;border-bottom:1px dotted #ddd;}
+.make-box-inner .control-btn {position:absolute;right:0;top:50%;transform: translateY(-50%);}
+.make-box-inner .control-btn button{width:65px;height:40px;cursor:pointer;background:#446dcb;border:1px solid #446dcb;color:#fff;font-weight:bold;}
+.make-box-inner .control-btn button:active{position:relative;top:1px;left:1px;}
+.make-box-inner .input-area {font-size:0;}
+.make-box-inner .input-area input {font-size:14px;}
 
 .release-info {padding:10px 30px;border:1px solid #efefef;}
 .release-info:hover {background: rgba(247,208,0,.2);}
@@ -35,18 +44,18 @@ html, body{width:100%;height:100%;}
 .box-control .resualt-value {position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:12px;}
 .box-control .color-ctrl{padding-bottom:10px;border-bottom:1px solid #ddd;line-height:1.4;}
 
-.boardcopy-wrap {padding:15px 0;text-align:right;}
-.boardcopy-wrap button{width:100px;height:40px;cursor:pointer;background:#446dcb;border:0;color:#fff;font-weight:bold;transition: background .3s linear;}
-.boardcopy-wrap button:hover {background:#303030;}
-.boardcopy-wrap button.direct {background: #fe0eae}
-.boardcopy-wrap button.direct:hover {background:#f70000;}
+.board-copy-wrap {padding:15px 0;text-align:right;}
+.board-copy-wrap button{width:100px;height:40px;cursor:pointer;background:#446dcb;border:0;color:#fff;font-weight:bold;transition: background .3s linear;}
+.board-copy-wrap button:hover {background:#303030;}
+.board-copy-wrap button.direct {background: #fe0eae}
+.board-copy-wrap button.direct:hover {background:#f70000;}
 
-.resualt-px {margin-top:10px;}
-.resualt-px textarea {color:#0f92f7;line-height:1.4;border:0;resize:none;width:100%;font-size:14px;font-weight:bold;padding:0;}
-.resualt-px textarea:focus {outline:none;}
-.resualt-per {margin-top:10px;}
-.resualt-per textarea{color:#0f92f7;line-height:1.4;border:0;resize:none;width:100%;font-size:14px;font-weight:bold;padding:0;}
-.resualt-per textarea:focus {outline:none;}
+.result-px {margin-top:10px;}
+.result-px textarea {color:#0f92f7;line-height:1.4;border:0;resize:none;width:100%;font-size:14px;font-weight:bold;padding:0;}
+.result-px textarea:focus {outline:none;}
+.result-per {margin-top:10px;}
+.result-per textarea{color:#0f92f7;line-height:1.4;border:0;resize:none;width:100%;font-size:14px;font-weight:bold;padding:0;}
+.result-per textarea:focus {outline:none;}
 
 .reset-wrap {text-align:right;padding:15px 0;border-bottom:1px dotted #ddd;}
 .reset-wrap button{transition: background .3s linear}
@@ -60,17 +69,17 @@ html, body{width:100%;height:100%;}
 /* set */
 .radio-set label{font-size:12px;vertical-align: top;line-height:16px;cursor:pointer;padding:5px 0;}
 
-.m-event-area {display:none;position:fixed;top:0;left:0;z-index:100;}
-.m-event-area.is-show {display:block;}
-.m-event-area .event-inner {position:relative}
-.m-event-area .rect-box{width:200px;height:120px;background: #fff300;min-width:20px;min-height:20px;opacity:.4;}
-.m-event-area .rect-box:hover {border:1px solid #666;}
-.m-event-area .rect-box:active {cursor:move;}
-.m-event-area .resize-btn{position:absolute;right:0;bottom:0;background:transparent;width:0;height:0;border-left:20px solid transparent;border-bottom:20px solid rgba(255, 122, 0, 0.8);cursor:pointer;}
-.m-event-area .resize-btn:hover,
-.m-event-area .resize-btn:active {border-bottom-color:#000}
-.m-event-area .fixed-btn {position:absolute;left:50%;top:-60px;transform:translateX(-50%);width:50px;height:50px;border-radius:50%;background:#0f92f7;color:#fff;border:0;}
-.m-event-area .fixed-btn.is-active{background:#f70000;font-weight:bold}
+.move-event-area {display:none;position:fixed;top:0;left:0;z-index:100;}
+.move-event-area.is-show {display:block;}
+.move-event-area .event-inner {position:relative}
+.move-event-area .rect-box{width:200px;height:120px;background: #fff300;min-width:20px;min-height:20px;opacity:.4;}
+.move-event-area .rect-box:hover {border:1px solid #666;}
+.move-event-area .rect-box:active {cursor:move;}
+.move-event-area .resize-btn{position:absolute;right:0;bottom:0;background:transparent;width:0;height:0;border-left:20px solid transparent;border-bottom:20px solid rgba(255, 122, 0, 0.8);cursor:pointer;}
+.move-event-area .resize-btn:hover,
+.move-event-area .resize-btn:active {border-bottom-color:#000}
+.move-event-area .fixed-btn {position:absolute;left:50%;top:-60px;transform:translateX(-50%);width:50px;height:50px;border-radius:50%;background:#0f92f7;color:#fff;border:0;}
+.move-event-area .fixed-btn.is-active{background:#f70000;font-weight:bold}
 
 .release-info {max-height:150px;overflow:hidden;overflow-y:scroll;}
 

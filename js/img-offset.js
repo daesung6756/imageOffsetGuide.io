@@ -2,7 +2,7 @@
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
     var wrap = document.querySelector('.wrap');
-    var rect = document.querySelector('.m-event-area');
+    var rect = document.querySelector('.move-event-area');
     wrap.classList.add('is-hide');
     // Loop through the FileList and render image files as thumbnails.
     for (var i = 0, f; f = files[i]; i++) {
@@ -31,18 +31,19 @@ function handleFileSelect(evt) {
     }
 }
 function handleFileSelectReset() {
-    var wrap = document.querySelector('.wrap');
-    var rect = document.querySelector('.m-event-area');
-    var output = document.querySelector('.local-img-output');
-    var child = output.querySelector('span');
-    var input = document.getElementById('files');
+    const wrap = document.querySelector('.wrap');
+    const rect = document.querySelector('.move-event-area');
+    const output = document.querySelector('.local-img-output');
+    const child = output.querySelector('.img-wrap');
+    const input = document.getElementById('files');
+    const options = document.querySelector(".options");
 
     if(child !== null && child !== undefined){
         rect.classList.remove('is-show');
         wrap.classList.remove('is-hide');
         output.removeChild(child);
         input.value = "";
-
+        options.classList.remove("is-show")
     } else {
         console.log('불러온 이미지가 없습니다.');
         return false;
@@ -55,7 +56,7 @@ function getAlphaTarget (el, className) {
     $target.css({
         "opacity" : $value ,
     });
-    $this.next('.resualt-value').text('opacity :'+ $value );
+    $this.next('.result-value').text('opacity :'+ $value );
 }
 function resizeStart (e) {
     var $pageX = e.pageX;
@@ -81,11 +82,11 @@ function resizeStart (e) {
     $rect.width($sumX).height($sumY);
 }
 function moveWrapClone(el, target){
-    var $scrollY = $('html, body').scrollTop();
-    var $scrollX = $('html, body').scrollLeft();
-    var $thisTop = parseInt($(el).offset().top - $scrollY);
-    var $thisLeft = parseInt($(el).offset().left - $scrollX);
-    var $wrap = $(target);
+    let $scrollY = $('html, body').scrollTop();
+    let $scrollX = $('html, body').scrollLeft();
+    let $thisTop = parseInt($(el).offset().top - $scrollY);
+    let $thisLeft = parseInt($(el).offset().left - $scrollX);
+    let $wrap = $(target);
     $wrap.css({
         "top":  $thisTop + 'px',
         "left" : $thisLeft + 'px',
@@ -93,20 +94,20 @@ function moveWrapClone(el, target){
     });
 }
 function resizeMoveGetData() {
-    var $winW = $(window).width();
-    var $wrapLeft = $('.img-wrap').width();
-    var $wrapTop = $('.img-wrap').height();
-    var $imgLeft = ($winW - $wrapLeft)/2;
-    var $btnW = $(".m-event-area").width();
-    var $btnH = $(".m-event-area").height();
-    var $thisTop = $(".m-event-area").offset().top;
-    var $thisLeft = $(".m-event-area").offset().left;
-    var $cssLeft = parseInt($thisLeft - $imgLeft);
-    var $cssTop = $thisTop;
-    var $perTop = ($thisTop/$wrapTop) * 100;
-    var $perLeft = ($cssLeft/$wrapLeft) * 100;
-    var $perWidth = ($btnW/$wrapLeft) * 100;
-    var $perHeight = ($btnH/$wrapTop) * 100;
+    let $winW = $(window).width();
+    let $wrapLeft = $('.img-wrap').width();
+    let $wrapTop = $('.img-wrap').height();
+    let $imgLeft = ($winW - $wrapLeft)/2;
+    let $btnW = $(".move-event-area").width();
+    let $btnH = $(".move-event-area").height();
+    let $thisTop = $(".move-event-area").offset().top;
+    let $thisLeft = $(".move-event-area").offset().left;
+    let $cssLeft = parseInt($thisLeft - $imgLeft);
+    let $cssTop = $thisTop;
+    let $perTop = ($thisTop/$wrapTop) * 100;
+    let $perLeft = ($cssLeft/$wrapLeft) * 100;
+    let $perWidth = ($btnW/$wrapLeft) * 100;
+    let $perHeight = ($btnH/$wrapTop) * 100;
 
     if($cssLeft < 0 || $wrapLeft < $cssLeft || $thisTop > $wrapTop || 0 > $thisTop){
         $cssLeft = null;$cssTop = null;
@@ -120,23 +121,23 @@ function resizeMoveGetData() {
     draggableOffsetLeftPer = $perLeft;
     draggableOffsetWidthPer = $perWidth;
     draggableOffsetHeightPer = $perHeight;
-    $btnResualtWidth = $btnW;
-    $btnResualtHeight = $btnH;
+    $btnResultWidth = $btnW;
+    $btnResultHeight = $btnH;
 }
 function resizeMoveDrawData() {
-    var input = $(".makeBox").find('.input-area').children();
+    var input = $(".make-box").find('.input-area').children();
     var $target = $('.make-rect-box');
     var $wrapTop = $('.img-wrap').height();
     for (var i = 0; i < input.length ; i++) {}
     if(draggableOffsetTopPer !== null || draggableOffsetTopPer !== undefined && draggableOffsetLeftPer !== null && draggableOffsetLeftPer !== undefined){
-        $('.resualt-per').children().val("top:" + (draggableOffsetTopPer - 0.02).toFixed(2)  + "%;left:"+ draggableOffsetLeftPer.toFixed(2) +'%;width:'+ draggableOffsetWidthPer.toFixed(2) + '%;height:' + draggableOffsetHeightPer.toFixed(2) + '%;');
+        $('.result-per').children().val("top:" + (draggableOffsetTopPer - 0.02).toFixed(2)  + "%;left:"+ draggableOffsetLeftPer.toFixed(2) +'%;width:'+ draggableOffsetWidthPer.toFixed(2) + '%;height:' + draggableOffsetHeightPer.toFixed(2) + '%;');
     } else {
-        $('.resualt-per').children().val("top:" + null + ";left:"+ null +';width:' + null + ';height:' + null);
+        $('.result-per').children().val("top:" + null + ";left:"+ null +';width:' + null + ';height:' + null);
     }
     if(input[0].value !== null && input[0].value !== undefined){
-        $('.resualt-px').children().val("top:" + draggableOffsetTop + "px;left:"+ draggableOffsetLeft +'px;width:' + $btnResualtWidth + 'px;height:'+ $btnResualtHeight +'px');
+        $('.result-px').children().val("top:" + draggableOffsetTop + "px;left:"+ draggableOffsetLeft +'px;width:' + $btnResultWidth + 'px;height:'+ $btnResultHeight +'px');
     } else {
-        $('.resualt-px').children().val("top:" + draggableOffsetTop + "px;left:"+ draggableOffsetLeft +'px;width:' + input[0].value + 'px;height:'+ input[1].value +'px');
+        $('.result-px').children().val("top:" + draggableOffsetTop + "px;left:"+ draggableOffsetLeft +'px;width:' + input[0].value + 'px;height:'+ input[1].value +'px');
     }
 }
 function appendBtn ($target) {
@@ -144,7 +145,7 @@ function appendBtn ($target) {
     var $tg = $($target).val();
     if($tg !== null && $tg !== undefined && $tg !== ''){
         $body.append('<div class="fixed-dim"><textarea><a href="" title="내용" class="tp_btn" style="' + $tg + '" target="_self"><span class="hidden">내용</span></a></textarea></div>');
-         $('.fixed-dim').children('textarea').select();
+        $('.fixed-dim').children('textarea').select();
         document.execCommand('Copy');
         setTimeout(function(){
             $('.fixed-dim').remove();
@@ -167,7 +168,7 @@ function boardCopyEvent(el) {
 }
 function mouseEventKeyMove(direction) {
     var $direction = direction;
-    var $target = $('.m-event-area');
+    var $target = $('.move-event-area');
     var $top = $target.css('top').replace(/[^0-9]/g,"");
     var $left = $target.css('left').replace(/[^0-9]/g,"");
 
@@ -238,22 +239,24 @@ function colorChangeRadioEvent($el, $target) {
 }
 
 function fixedTopTarget (e) {
-    var $this = $(e.path[0]);
-    var $target = $('.m-event-area');
+    var $this = $(e.composedPath()[0]);
+    var $target = $('.move-event-area');
     var $getTop = $target.css('top');
     $this.toggleClass('is-active');
     if($this.hasClass('is-active')){
         fixeding = true;
         $this.text('고정 중');
-        $thisTop = $('.m-event-area').css('top');
+        $thisTop = $('.move-event-area').css('top');
     } else {
         $this.text('고정');
         fixeding = false;
     }
 }
-function toggleClass (el, className) {
-    var $el = $(el)
-    $el.toggleClass(className);
+function clickToggleClassEvent(el, className) {
+    const elem = document.querySelector(el)
+    document.querySelector(".local-img-output").children.length > 0 ?
+        elem.classList.toggle(className)
+        : alert("선택된 이미지가 없습니다.")
 }
 
 var resizing = false;
@@ -266,13 +269,12 @@ var draggableOffsetTopPer ='';
 var draggableOffsetLeftPer ='';
 var draggableOffsetWidthPer ='';
 var draggableOffsetHeightPer = '';
-var $btnResualtWidth = '';
-var $btnResualtHeight = '';
+var $btnResultWidth = '';
+var $btnResultHeight = '';
 var $fixedTop = '';
 var $thisTop ='';
 
 $(document).ready(function() {
-
     $(document).on('keydown',function(e) {
         var $key = e.keyCode;
         switch($key){
@@ -296,7 +298,7 @@ $(document).ready(function() {
                 break;
         }
     });
-    $(document).on('click','.m-event-area',function(){
+    $(document).on('click','.move-event-area',function(){
         resizeMoveGetData();
         resizeMoveDrawData();
         return false;
@@ -321,9 +323,9 @@ $(document).ready(function() {
         }
         if(dragging){
 
-            moveWrapClone('.rect-box', ".m-event-area");
+            moveWrapClone('.rect-box', ".move-event-area");
             resizeMoveGetData();
-           //console.log("렉트 박스 : 마우스 무브");
+            //console.log("렉트 박스 : 마우스 무브");
             return false;
         }
     });
@@ -337,8 +339,8 @@ $(document).ready(function() {
         }
         if (dragging) {
             if(fixeding){
-                $('.m-event-area').css({'top': $thisTop});
-                $('.m-event-area').click();
+                $('.move-event-area').css({'top': $thisTop});
+                $('.move-event-area').click();
             }
             //console.log("렉트 박스 : 마우스 업");
             var $rect = $('.rect-box');
@@ -353,7 +355,7 @@ $(document).ready(function() {
         $(this).remove();
     });
     $(document).on('click','.change-btn', function() {
-        var input = $(".makeBox").find('.input-area').children();
+        var input = $(".make-box").find('.input-area').children();
         var $target = $('.rect-box');
         for (var i = 0; i < input.length ; i++) {}
         $target.css({
@@ -363,13 +365,16 @@ $(document).ready(function() {
     });
     /* 20190424 추가 드레그 범위 지정 - 이벤트 버블링 현상  */
     $(document).on('mouseenter', '.box-control', function(){
-        $('.makeBox').draggable({disabled: true});
+        $('.make-box').draggable({disabled: true});
     });
     $(document).on('mouseleave', '.box-control', function(){
-        $('.makeBox').draggable({disabled: false});
+        $('.make-box').draggable({disabled: false});
     });
     $('.rect-box').draggable({containment : '.img-wrap'});
-    $('.makeBox').draggable();
+    $('.make-box').draggable()
+    $('.make-box').on("mousedown touchstart", function () {
+        $(this).css({"right": "auto"})
+    })
 
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
 });
