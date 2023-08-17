@@ -38,8 +38,8 @@ function handleFileSelectReset() {
     const child = output.querySelector('.img-wrap');
     const input = document.getElementById('files');
     const options = document.querySelector(".options");
-    const $viewWidth = $(".rect-box-width");
-    const $viewHeight = $(".rect-box-height");
+    const $viewWidth = document.querySelector(".rect-box-width");
+    const $viewHeight = document.querySelector(".rect-box-height");
 
     if(child !== null && child !== undefined){
         moveArea.classList.remove('is-show');
@@ -53,7 +53,6 @@ function handleFileSelectReset() {
         rect.style.height = "120px"
         $viewWidth.innerHTML = ""
         $viewHeight.innerHTML = ""
-
     } else {
         console.log('불러온 이미지가 없습니다.');
         return false;
@@ -83,18 +82,23 @@ function resizeStart (e) {
     const $viewWidth = $(".rect-box-width")
     const $viewHeight = $(".rect-box-height")
 
-    if($sumY < 20 && $sumX < 20){
+    if($sumX <= 20 || Math.sign($sumX) === -1 ){
         $sumX = 20;
+    }
+    if( $sumY <= 20 || Math.sign($sumY) === -1 ){
         $sumY = 20;
-    } else if( $sumX > $imgWrapWidth){
+    }
+    if( $sumX > $imgWrapWidth){
         $sumX = $imgWrapWidth;
-    } else if ( $sumY > $imgWrapHeight){
+    }
+    if ( $sumY > $imgWrapHeight){
         $sumY = $imgWrapHeight;
     }
     $rect.width($sumX).height($sumY);
     $viewWidth.html($sumX + "px")
     $viewHeight.html($sumY + "px")
 }
+
 function moveWrapClone(el, target){
     let $scrollY = $('html, body').scrollTop();
     let $scrollX = $('html, body').scrollLeft();
@@ -107,6 +111,7 @@ function moveWrapClone(el, target){
         "transform" : "translate(0)"
     });
 }
+
 function resizeMoveGetData() {
     let $winW = $(window).width();
     let $wrapLeft = $('.img-wrap').width();
@@ -367,13 +372,19 @@ $(document).ready(function() {
         $(this).remove();
     });
     $(document).on('click','.change-btn', function() {
-        var input = $(".make-box").find('.input-area').children();
-        var $target = $('.rect-box');
-        for (var i = 0; i < input.length ; i++) {}
-        $target.css({
-            'width' : input[0].value + 'px',
-            'height' : input[1].value + 'px',
-        })
+        const input = $(".make-box").find('.input-area').children();
+        const $target = $('.rect-box');
+        const $viewWidth = $(".rect-box-width")
+        const $viewHeight = $(".rect-box-height")
+        for (var i = 0; i < input.length ; i++) {
+            $target.css({
+                'width' : input[0].value + 'px',
+                'height' : input[1].value + 'px',
+            })
+            $viewWidth.text(input[0].value + "px")
+            $viewHeight.text(input[1].value + "px")
+
+        }
     });
     /* 20190424 추가 드레그 범위 지정 - 이벤트 버블링 현상  */
     $(document).on('mouseenter', '.box-control', function(){

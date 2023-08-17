@@ -91,32 +91,41 @@
 <div class="wrap">
     <div class="header">
         <div class="inner">
-            <h1 class="title tc">Leeds Get Images Offset Generator v0.7</h1>
+            <h1 class="title tc">Get Images Offset Generator v0.8</h1>
         </div>
     </div>
 
     <div class="container">
         <div class="content">
             <!-- 제작 정보 : Start -->
-            <div class="row mt40" style="max-width:1024px;">
+            <div class="row" style="max-width:1024px;">
                 <div class="column n2">
                     <ol class="ol-list">
-                        <li>01. 원하는 이미지를 <em>Input Dotted 영역에 드래그 후 드롭</em> 해준다.</li>
-                        <li>02. <em>노란영역(이동)</em> 클릭후 드래그 해서 원하는 위치에 놓는다.</li>
-                        <li>03. <em>방향키로</em> 섬세하게 위치를 잡아준다. <em>(←,↑,↓,→)</em></li>
-                        <li>04. <strong>주황영역(크기조절)</strong> 클릭 후 원하는 크기로 조정 한다.</li>
-                        <li>05. 우측 상단의 컨트롤 박스에서 원하는 단위 버튼을 클릭.</li>
+                        <li><span class="index">01.</span> 원하는 이미지를 <em>아래 드래그를 하거나 클릭을 </em> 합니다.</li>
+                        <li><span class="index">02.</span> 이미지를 불러오면 <em>드래그 영역(초기 노란색)을</em> 클릭한 상태로 드래그 해서 원하는 위치에 놓습니다.</li>
+                        <li><span class="index">03.</span> <em>방향키로</em> 섬세하게 위치를 잡아줍니다. <em>(←,↑,↓,→)</em></li>
+                        <li><span class="index">04.</span> 드래그 영역 오른쪽 하단에 <strong>리사이즈 버튼을(주황색)</strong> 클릭 후 원하는 크기로 조정합니다.</li>
+                        <li><span class="index">05.</span> 우측 상단에 <em>옵션 버튼을</em> 클릭하면 옵션창이 열리는데, 하단에 px, % 복사 버튼을 클릭해서 클립보드에 복사합니다.</li>
+                        <li><span class="index">06.</span> 원하는 곳에 복사된 스타일을 붙혀 넣습니다.</li>
                     </ol>
                     <ul class="ul-list mt10">
                         <li>※ 스크롤 이동이 있을 시 한번 클릭하셔야 위치값이 전송됩니다.</li>
-                        <li>※ 미완성 버전임브로 결함이나 에러가 있을 수 있습니다.</li>
                         <li>※ 드래그/리사이즈 시 연속적으로 수치를 가져 옵니다.</li>
-                        <li>※ 사용하시다가 불편한 점이 있으시면, 참고 하십시요.</li>
+                        <li>※ 미완성 버전으로 결함이나 에러가 있을 수 있습니다.</li>
                     </ul>
                 </div>
                 <div class="column n2">
                     <div class="release-info">
                         <ul>
+                            <li>
+                                <strong>v0.8</strong>
+                                <ul>
+                                    <li>위치 박스 가로 세로 값 음수 표기 안되도록 수정</li>
+                                    <li>옵션 메뉴 사이즈 수정 시 가로 세로값 표시 되도록 수정</li>
+                                    <li>일부 스타일 수정</li>
+                                    <li>Footer 추가</li>
+                                </ul>
+                            </li>
                             <li>
                                 <strong>v0.7</strong>
                                 <ul>
@@ -188,6 +197,12 @@
                     <input type="file" id="files" name="files[]" multiple  class="fake" />
                 </fieldset>
             </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="inner">
+            <p>Copyright@Dae-sung.lee <a href="mailto:leeds019@gmail.com" class="email">leeds019@gmail.com</a></p>
         </div>
     </div>
 </div>

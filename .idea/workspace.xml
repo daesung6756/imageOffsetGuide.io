@@ -54,7 +54,7 @@
       <workItem from="1691570648429" duration="970000" />
       <workItem from="1691711954465" duration="30352000" />
       <workItem from="1692143846293" duration="328000" />
-      <workItem from="1692144666817" duration="33359000" />
+      <workItem from="1692144666817" duration="37928000" />
     </task>
     <task id="LOCAL-00001" summary="사이트 업데이트">
       <created>1611629398579</created>
@@ -84,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692176001054</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="0.7버전">
+      <created>1692239806884</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692239806884</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +102,7 @@
     <MESSAGE value="input box resize" />
     <MESSAGE value="디자인 변경" />
     <MESSAGE value="일부 기능 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="일부 기능 수정" />
+    <MESSAGE value="0.7버전" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.7버전" />
   </component>
 </project>
