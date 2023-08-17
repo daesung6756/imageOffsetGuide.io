@@ -32,18 +32,28 @@ function handleFileSelect(evt) {
 }
 function handleFileSelectReset() {
     const wrap = document.querySelector('.wrap');
-    const rect = document.querySelector('.move-event-area');
+    const moveArea = document.querySelector('.move-event-area');
+    const rect = document.querySelector('.rect-box');
     const output = document.querySelector('.local-img-output');
     const child = output.querySelector('.img-wrap');
     const input = document.getElementById('files');
     const options = document.querySelector(".options");
+    const $viewWidth = $(".rect-box-width");
+    const $viewHeight = $(".rect-box-height");
 
     if(child !== null && child !== undefined){
-        rect.classList.remove('is-show');
+        moveArea.classList.remove('is-show');
         wrap.classList.remove('is-hide');
         output.removeChild(child);
         input.value = "";
         options.classList.remove("is-show")
+        moveArea.style.top = "0"
+        moveArea.style.left = "0"
+        rect.style.width = "200px"
+        rect.style.height = "120px"
+        $viewWidth.innerHTML = ""
+        $viewHeight.innerHTML = ""
+
     } else {
         console.log('불러온 이미지가 없습니다.');
         return false;
@@ -56,7 +66,7 @@ function getAlphaTarget (el, className) {
     $target.css({
         "opacity" : $value ,
     });
-    $this.next('.result-value').text('opacity :'+ $value );
+    $this.next('.result-value').text( $value );
 }
 function resizeStart (e) {
     var $pageX = e.pageX;
@@ -70,6 +80,8 @@ function resizeStart (e) {
     var $sumX = $pageX - parseInt($rectLeft - $btnWidth);
     var $imgWrapWidth = $(".img-wrap").width();
     var $imgWrapHeight = $(".img-wrap").height();
+    const $viewWidth = $(".rect-box-width")
+    const $viewHeight = $(".rect-box-height")
 
     if($sumY < 20 && $sumX < 20){
         $sumX = 20;
@@ -80,6 +92,8 @@ function resizeStart (e) {
         $sumY = $imgWrapHeight;
     }
     $rect.width($sumX).height($sumY);
+    $viewWidth.html($sumX + "px")
+    $viewHeight.html($sumY + "px")
 }
 function moveWrapClone(el, target){
     let $scrollY = $('html, body').scrollTop();
@@ -125,19 +139,17 @@ function resizeMoveGetData() {
     $btnResultHeight = $btnH;
 }
 function resizeMoveDrawData() {
-    var input = $(".make-box").find('.input-area').children();
-    var $target = $('.make-rect-box');
-    var $wrapTop = $('.img-wrap').height();
-    for (var i = 0; i < input.length ; i++) {}
+    const input = $(".make-box").find('.input-area').children();
+
     if(draggableOffsetTopPer !== null || draggableOffsetTopPer !== undefined && draggableOffsetLeftPer !== null && draggableOffsetLeftPer !== undefined){
-        $('.result-per').children().val("top:" + (draggableOffsetTopPer - 0.02).toFixed(2)  + "%;left:"+ draggableOffsetLeftPer.toFixed(2) +'%;width:'+ draggableOffsetWidthPer.toFixed(2) + '%;height:' + draggableOffsetHeightPer.toFixed(2) + '%;');
+        $('#result-per').val("top:" + (draggableOffsetTopPer - 0.02).toFixed(2)  + "%;left:"+ draggableOffsetLeftPer.toFixed(2) +'%;width:'+ draggableOffsetWidthPer.toFixed(2) + '%;height:' + draggableOffsetHeightPer.toFixed(2) + '%;');
     } else {
-        $('.result-per').children().val("top:" + null + ";left:"+ null +';width:' + null + ';height:' + null);
+        $('#result-per').val("top:" + null + ";left:"+ null +';width:' + null + ';height:' + null);
     }
     if(input[0].value !== null && input[0].value !== undefined){
-        $('.result-px').children().val("top:" + draggableOffsetTop + "px;left:"+ draggableOffsetLeft +'px;width:' + $btnResultWidth + 'px;height:'+ $btnResultHeight +'px');
+        $('#result-px').val("top:" + draggableOffsetTop + "px;left:"+ draggableOffsetLeft +'px;width:' + $btnResultWidth + 'px;height:'+ $btnResultHeight +'px');
     } else {
-        $('.result-px').children().val("top:" + draggableOffsetTop + "px;left:"+ draggableOffsetLeft +'px;width:' + input[0].value + 'px;height:'+ input[1].value +'px');
+        $('#result-px').val("top:" + draggableOffsetTop + "px;left:"+ draggableOffsetLeft +'px;width:' + input[0].value + 'px;height:'+ input[1].value +'px');
     }
 }
 function appendBtn ($target) {
@@ -371,10 +383,7 @@ $(document).ready(function() {
         $('.make-box').draggable({disabled: false});
     });
     $('.rect-box').draggable({containment : '.img-wrap'});
-    $('.make-box').draggable()
-    $('.make-box').on("mousedown touchstart", function () {
-        $(this).css({"right": "auto"})
-    })
+    $('.make-box').draggable({containment : '.img-wrap',handle : '.drag-area'})
 
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
 });

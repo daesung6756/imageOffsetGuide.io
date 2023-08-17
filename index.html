@@ -20,6 +20,8 @@
         <button type="button" class="fixed-btn" onclick="fixedTopTarget(event)">고정</button>
         <div class="rect-box"></div>
         <span class="resize-btn"></span>
+        <span class="rect-box-width"></span>
+        <span class="rect-box-height"></span>
     </div>
 </div>
 
@@ -28,50 +30,59 @@
     <button type="button" class="btn options-open" onclick="clickToggleClassEvent('.options','is-show')">Option</button>
     <!-- btn -->
     <div class="make-box">
-        <div class="box-head"><button type="button" class="btn options-close" onclick="clickToggleClassEvent('.options','is-show')">Close</button></div>
-        <div class="box-control">
-            <div class="color-ctrl">
-                <p class="desc-title">박스 색상</p>
-                <div class="radio-set">
-                    <label for="colorSelect1"><input type="radio" id="colorSelect1" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">블랙</label>
-                    <label for="colorSelect2"><input type="radio" id="colorSelect2" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">블루</label>
-                    <label for="colorSelect3"><input type="radio" id="colorSelect3" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">레드</label>
-                    <label for="colorSelect4"><input type="radio" id="colorSelect4" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')" checked>옐로우</label>
-                </div>
-            </div>
-            <div class="alpha-ctrl">
-                <p class="desc-title">박스 투명도</p>
-                <div class="ctrl-inner">
-                    <input type="range" value="3" min="0" max="10" class="alpha-range" onchange="getAlphaTarget('.rect-box', '.alpha-range')">
-                    <span class="result-value">opacity :0.3</span>
-                </div>
+        <div class="column box-head">
+            <div class="box-inner">
+                <div class="drag-area"></div>
+                <button type="button" class="btn options-close" onclick="clickToggleClassEvent('.options','is-show')">Close</button>
             </div>
         </div>
-        <div class="make-box-inner">
-            <div class="input-area">
+        <div class="column">
+            <p class="desc-title">박스 색상</p>
+            <div class="radio-set box-inner">
+                <label for="colorSelect1"><input type="radio" id="colorSelect1" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">블랙</label>
+                <label for="colorSelect2"><input type="radio" id="colorSelect2" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">블루</label>
+                <label for="colorSelect3"><input type="radio" id="colorSelect3" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')">레드</label>
+                <label for="colorSelect4"><input type="radio" id="colorSelect4" name="box-color-change" onchange="colorChangeRadioEvent('.radio-set', '.rect-box')" checked>옐로우</label>
+            </div>
+        </div>
+        <div class="column">
+            <p class="desc-title">박스 투명도</p>
+            <div class="box-inner">
+                <input type="range" value="3" min="0" max="10" class="alpha-range" onchange="getAlphaTarget('.rect-box', '.alpha-range')">
+                <span class="result-value">0.3</span>
+            </div>
+        </div>
+        <div class="column make-box-inner">
+            <p class="desc-title">사이즈 조정</p>
+            <div class="input-area box-inner">
                 <input type="text" class="input-text-set makeBox-width" placeholder="width" maxlength="5">
                 <input type="text" class="input-text-set makeBox-height" placeholder="height" maxlength="5">
+                <button type="button" class="change-btn">변경</button>
             </div>
-            <div class="control-btn"><button type="button" class="change-btn">변경</button></div>
         </div>
-        <div class="reset-wrap">
+        <div class="column board-copy-wrap">
+            <p class="desc-title">A태그 생성</p>
+            <div class="box-inner">
+                <button type="button" class="direct" onclick="appendBtn('#result-px')">A 생성 (px)</button>
+                <button type="button" class="direct" onclick="appendBtn('#result-per')">A 생성 (%)</button>
+            </div>
+        </div>
+        <div class="column result-px">
+            <p class="desc-title">Style 복사</p>
+            <div class="box-inner ff-column">
+                <div class="flex-row g10">
+                    <textarea id="result-px" readonly="readonly"></textarea>
+                    <button type="button" onclick="boardCopyEvent('#result-px')">PX<br>복사</button>
+                </div>
+                <div class="flex-row g10">
+                    <textarea id="result-per" readonly="readonly"></textarea>
+                    <button type="button" onclick="boardCopyEvent('#result-per')">%<br>복사</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="column reset-wrap">
             <button type="button" class="img-view-reset" onclick="handleFileSelectReset()">이미지 초기화</button>
-        </div>
-        <div class="board-copy-wrap">
-            <div>
-                <button type="button" onclick="boardCopyEvent('#result-px')">PX CSS 복사</button>
-                <button type="button" onclick="boardCopyEvent('#result-per')">% CSS 복사</button>
-            </div>
-            <div style="margin-top:10px;">
-                <button type="button" class="direct" onclick="appendBtn('#result-px')">PX 버튼 복사</button>
-                <button type="button" class="direct" onclick="appendBtn('#result-per')">% 버튼 복사</button>
-            </div>
-        </div>
-        <div class="result-px">
-            <textarea id="result-px" readonly="readonly"></textarea>
-        </div>
-        <div class="result-per">
-            <textarea id="result-per" readonly="readonly"></textarea>
         </div>
     </div>
 </div>
@@ -80,7 +91,7 @@
 <div class="wrap">
     <div class="header">
         <div class="inner">
-            <h1 class="title tc">Leeds Get Images Offset Generator v0.6</h1>
+            <h1 class="title tc">Leeds Get Images Offset Generator v0.7</h1>
         </div>
     </div>
 
@@ -106,6 +117,13 @@
                 <div class="column n2">
                     <div class="release-info">
                         <ul>
+                            <li>
+                                <strong>v0.7</strong>
+                                <ul>
+                                    <li>Option 디자인 변경 및 오류 수정</li>
+                                    <li>리사이즈시 가로 세로값 표기 추가</li>
+                                </ul>
+                            </li>
                             <li>
                                 <strong>v0.6</strong>
                                 <ul>

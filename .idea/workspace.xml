@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9488769-f3df-42ec-9fec-79626e23a46a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/css/vendor/jquery-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/vendor/jquery-1.12.4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/vendor/jquery-ui.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/img-offset.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/img-offset.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/img-offset.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/img-offset.js" afterDir="false" />
@@ -56,7 +54,7 @@
       <workItem from="1691570648429" duration="970000" />
       <workItem from="1691711954465" duration="30352000" />
       <workItem from="1692143846293" duration="328000" />
-      <workItem from="1692144666817" duration="23354000" />
+      <workItem from="1692144666817" duration="33359000" />
     </task>
     <task id="LOCAL-00001" summary="사이트 업데이트">
       <created>1611629398579</created>
@@ -79,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611638091998</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="일부 기능 수정">
+      <created>1692176001054</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692176001054</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +94,7 @@
     <MESSAGE value="사이트 업데이트" />
     <MESSAGE value="input box resize" />
     <MESSAGE value="디자인 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="디자인 변경" />
+    <MESSAGE value="일부 기능 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="일부 기능 수정" />
   </component>
 </project>
